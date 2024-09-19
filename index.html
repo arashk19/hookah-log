@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2566">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Hookah Log&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: Arial, sans-serif; background-color: #f4f4f4; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container { max-width: 600px; margin: 50px auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.log-button { background-color: #3498db; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.log-button:hover { background-color: #2980b9; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Daily Hookah Log&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;Log the number of hookahs you smoke each day.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="log-button" onclick="logHookah()"&gt;Log Hookah&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="count-display"&gt;You've smoked &lt;span id="hookah-count"&gt;0&lt;/span&gt; hookahs today.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="date-display"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let hookahCount = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const today = new Date().toLocaleDateString();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('date-display').innerText = `Today's date: ${today}`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function logHookah() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>hookahCount += 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('hookah-count').innerText = hookahCount;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Store count in local storage</p>
+<p class="p1"><span class="Apple-converted-space">            </span>localStorage.setItem(today, hookahCount);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Load previous count from local storage</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const savedCount = localStorage.getItem(today);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (savedCount) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>hookahCount = parseInt(savedCount);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('hookah-count').innerText = hookahCount;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
